@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
-
 import Title from './components/Title';
 import UsersList from './components/UsersList';
 
 function App() {
-	const [users, setUsers] = useState([]);
+	const [users, setUsers] = useState([]); 
 
-	const newUser = async () => {
-		const respuesta = await fetch(
+	const newUser = async () => { 
+		const respuesta = await fetch(  
 			'https://randomuser.me/api/?gender=female'
 		);
-		const { results } = await respuesta.json();
+		const { results } = await respuesta.json(); 
 		const newUser = { ...results[0], activo: true };
-		setUsers([newUser, ...users]);
+		setUsers([newUser, ...users]); 
 	};
 
 	const cambiarActivo = (id) => {
